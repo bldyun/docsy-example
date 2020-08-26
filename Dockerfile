@@ -1,7 +1,7 @@
 FROM registry-1.docker.io/bldyun/website:builder-3f480 as builder
 COPY . /src
 WORKDIR /src
-RUN git clone --recurse-submodules --depth 1 https://github.com/google/docsy.git \
+RUN git submodule update --init --recursive --depth 1\
  && npm install \
  &&  hugo --minify
 
